@@ -1,0 +1,58 @@
+{
+  "authenticationMethod": "none",
+  "welcomeFile": "/index.html",
+  "routes": [
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+	{
+	   "path": "/api/projects", 
+	   "target": {
+		"type": "destination",
+		"name": "xsprojectdata",
+		"entryPath": "/api"
+	   },
+	   "description": "HANA XS Backend"
+    }    
+  ],
+  "securityConstraints": [
+    {
+		"permission": "accessProjectData",
+        "description": "Access Project Data",    	
+    	"protectedPaths": [
+        	"/protected/"
+    	]
+    }
+  ],
+  "cacheControl": [
+    {
+      "directive": "private",
+      "maxAge": 0,
+      "path": "*html"
+    },
+    {
+      "directive": "private",
+      "maxAge": 0,
+      "path": "sap-ui-cachebuster-info.json"
+    },
+    {
+      "directive": "public",
+      "maxAge": 31536000
+    }
+  ]
+}
